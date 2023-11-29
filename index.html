@@ -7,14 +7,14 @@
     <!-- Include the Google Sign-In API -->
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Include your client ID from the Google Developer Console -->
-    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <meta name="google-signin-client_id" content="457995922934-7drlttfjut2nb0kddgdelnrcmujbrij6.apps.googleusercontent.com">
 </head>
 <body>
 
-<!-- Your HTML content --->
+<!-- Your HTML content -->
 
 <!-- Add a button to trigger Google authentication -->
-<button onclick="googleSignIn()">Authorizeee</button>
+<button onclick="googleSignIn()">Authorize</button>
 
 <!-- The element where Google Sign-In button will be rendered -->
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -27,9 +27,11 @@
 
     // Function to be called after successful Google authentication
     function onSignIn(googleUser) {
-        // You can perform actions after successful authentication here
-        console.log('Authentication successful');
-        
+        var id_token = googleUser.getAuthResponse().id_token;
+
+        // Log the ID token to the console
+        console.log('ID Token:', id_token);
+
         // Redirect to /authensuccess
         window.location.href = '/authensuccess';
     }
