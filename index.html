@@ -14,7 +14,7 @@
 <!-- Your HTML content -->
 
 <!-- Add a button to trigger Google authentication -->
-<button onclick="googleSignIn()">Authorize</button>
+<button onclick="googleSignIn()">Authorizeeeeeeeee</button>
 
 <!-- The element where Google Sign-In button will be rendered -->
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -24,6 +24,10 @@
     function googleSignIn() {
         gapi.auth2.getAuthInstance().signIn();
     }
+    var id_token = googleUser.getAuthResponse().id_token;
+
+    // Log the ID token to the console
+    console.log('ID Token:', id_token);
 
     // Function to be called after successful Google authentication
     function onSignIn(googleUser) {
